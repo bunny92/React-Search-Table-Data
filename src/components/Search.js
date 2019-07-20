@@ -25,7 +25,7 @@ export default class Search extends Component {
     showInStockProducts(event) {
         if (!this.state.checked) {
             const filterData = event.filter(stock => stock.stocked);
-            this.setState({ search_filter: filterData, checked: true });
+            this.setState({ search_filter: filterData, checked: true, input_search:'' });
         }
         if (this.state.checked) {
             this.setState({ checked: false });
