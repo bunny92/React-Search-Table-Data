@@ -3,3 +3,4 @@ const userReducers = (state = {user: []}, action) => {
         return { user: [ ...state.user.concat(action.payload) ]} 
     }
 }
+export default userReducers;
