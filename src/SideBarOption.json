@@ -1,0 +1,52 @@
+[
+    {
+        "icon": "fa fa-fw fa-home",
+        "name": "Home",
+        "link": "/admin/home"
+    },
+    {
+        "icon": "fa fa-fw fa-calendar",
+        "name": "Calender",
+        "link": "/admin/calender"
+    },
+    {
+        "icon": "fa fa-fw fa-users",
+        "name": "Clients",
+        "link": "/admin/client"
+    },
+    {
+        "icon": "fa fa-fw fa-shopping-cart",
+        "name": "Accounting",
+        "link": "/admin/accounting"
+    },
+    {
+        "icon": "fa fa-fw fa-coffee",
+        "name": "Projects",
+        "link": "/admin/projects"
+    },
+    {
+        "icon": "fa fa-fw fa-envelope",
+        "name": "Messages",
+        "link": "/admin/messages"
+    },
+    {
+        "icon": "fa fa-fw fa-ticket",
+        "name": "Support",
+        "link": "/admin/support"
+    },
+    {
+        "icon": "fa fa-fw fa-bars",
+        "name": "Templates",
+        "link": "/admin/templates"
+    },
+    {
+        "icon": "fa fa-fw fa-cogs",
+        "name": "Settings",
+        "link": "/admin/settings"
+    },
+    {
+        "icon": "fa fa-fw fa-lock",
+        "name": "Users",
+        "link": "/admin/users"
+    }
+]
