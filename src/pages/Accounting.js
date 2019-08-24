@@ -3,7 +3,7 @@ import TableList from "../components/TableList";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { sendUserData } from "../actions/Index";
+import { sendUserData } from "./../actions/Index";
 import Form from "react-bootstrap/Form";
 import { Grid, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -21,48 +21,50 @@ class Accounting extends Component {
   }
 
   getCategoryName(event) {
-    this.setState = {
+    this.setState({
       Category: event.target.value
-    };
+    })
+
   }
 
   getProductName(event) {
-    this.setState = {
+    this.setState({
       Product: event.target.value
-    };
+    });
   }
 
   getPrice(event) {
-    this.setState = {
+    this.setState ({
       Price: event.target.value
-    };
+    })
   }
 
   getStatus(event) {
-    this.setState = {
+    this.setState ({
       Status: event.target.value
-    };
+    })
   }
 
   submitData(event) {
     event.preventDefault();
-    this.state.objectData["categroy"] = this.state.Category;
-    this.state.objectData["product"] = this.state.Product;
+    this.state.objectData["category"] = this.state.Category;
+    this.state.objectData["name"] = this.state.Product;
     this.state.objectData["price"] = this.state.Price;
-    this.state.objectData["status"] = this.state.Status;
-    this.setState = ({
+    this.state.objectData["stocked"] = (this.state.Status === "true");
+    this.setState({
       objectData: this.state.objectData
-    },
-    () => {
+    }, () => {
       this.props.sendUserData(this.state.objectData);
-      this.state.name = "";
-      this.state.email = "";
-      this.state.mobile = "";
+      this.state.Category = "";
+      this.state.Product = "";
+      this.state.Price = "";
+      this.state.Status = "";
       this.state.objectData = {};
       this.setState({
-        name: this.state.name,
-        email: this.state.email,
-        mobile: this.state.mobile,
+        category: this.state.Category,
+        name: this.state.Product,
+        price: this.state.Price,
+        stocked: (this.state.Status === "true"),
         objectData: this.state.objectData
       });
     });
@@ -78,6 +80,7 @@ class Accounting extends Component {
                 <Form.Label>Category</Form.Label>
                 <Form.Control
                   type="text"
+                  value={this.state.Category}
                   onChange={this.getCategoryName.bind(this)}
                   placeholder="Enter Category"
                 />
@@ -87,6 +90,7 @@ class Accounting extends Component {
                 <Form.Label>Product</Form.Label>
                 <Form.Control
                   type="text"
+                  value={this.state.Product}
                   onChange={this.getProductName.bind(this)}
                   placeholder="Product Name"
                 />
@@ -97,6 +101,7 @@ class Accounting extends Component {
                 <Form.Label>Price</Form.Label>
                 <Form.Control
                   type="number"
+                  value={this.state.Price}
                   onChange={this.getPrice.bind(this)}
                   placeholder="Enter Price"
                 />
@@ -106,8 +111,8 @@ class Accounting extends Component {
                 <Form.Label>Status</Form.Label>
                 <Form.Control as="select" onChange={this.getStatus.bind(this)}>
                   <option value="">Choose Status</option>
-                  <option value="stocked">Instock</option>
-                  <option value="outstocked">Out Stock</option>
+                  <option value="true">Instock</option>
+                  <option value="false">Out Stock</option>
                 </Form.Control>
               </Form.Group>
             </Form.Row>
@@ -123,7 +128,9 @@ class Accounting extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+  
+  };
 }
 
 function mapDispatchToProps(dispatch) {
