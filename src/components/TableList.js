@@ -21,7 +21,7 @@ class TableList extends Component {
   componentDidMount() {
     axios.get("https://api.myjson.com/bins/109m7i").then(response => {
       console.log(response)
-      this.props.sendUserData(response.data)
+      this.props.sendUserData(response.data);
       this.setState({
         products: response.data
       });

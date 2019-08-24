@@ -11,10 +11,11 @@ const userReducers = (state = { user: [] }, action) => {
   } else if (action.type === "UPDATE_USER_DATA") {
 
 
-    let updateUserData = [...state.user];
+    let updateUserData = [...state.user]; //copy of the array present in the redux object
     const indexToUpdate = updateUserData.findIndex(function(user, id) {
       return id === action.payload.id;
     });
+    console.log("$$$", indexToUpdate);
 
     const updatedUserValue = {
       category: action.payload.userUpdatedData.category,
